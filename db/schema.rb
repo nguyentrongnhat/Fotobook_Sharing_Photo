@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_08_05_174711) do
     t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
-  create_table "albums_photos", force: :cascade do |t|
+  create_table "albums_photos", id: false, force: :cascade do |t|
     t.integer "album_id"
     t.integer "photo_id"
     t.index ["album_id"], name: "index_albums_photos_on_album_id"

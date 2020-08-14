@@ -4,9 +4,9 @@
 			<% @album.errors.full_messages.each do |error| %>
 				<div><%= error %></div>
 			<%end%>
-		
+		</div>
 		<div class="card" style="width: 18rem;">
-			<%= form_for @album, method: :put, :class => "form_edit_album" do |f| %>
+			<%= form_for @album, method: :put, :id => "dmm" do |f| %>
 				<label>Title:</label>
 				<%= f.text_field :title, :class => "form-control" %><br>
 				<%= submit_tag 'Submit' %>
@@ -14,3 +14,5 @@
 		</div>
 	</div>
 </div>
+
+

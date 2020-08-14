@@ -19,6 +19,7 @@ class AlbumsController < ApplicationController
   def update
     @album = Album.find(params[:id])
     if @album.update(param_permit)
+        flash[:notice] = "You have successfully logged out."
       redirect_to feeds_albums_path
     else
       render "edit"

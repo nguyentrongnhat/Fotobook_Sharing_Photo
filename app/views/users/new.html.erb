@@ -1,0 +1,35 @@
+<div class="container pt-3">
+		<div class="row">
+			<div class="card col-md-4">
+				<div class="container">
+					<%= form_for @user do |f| %>
+						<div class="form-group">
+							<label for="exampleInputEmail1">First name</label>
+							<%= f.text_field :firstname, :class => "form-control" %>
+						</div>
+						
+						<div class="form-group">
+							<label for="exampleInputPassword1">Last name</label>
+							<%= f.text_field :lastname, :class => "form-control" %>
+						</div>
+
+						<div class="form-group">
+							<label for="exampleInputPassword1">Email</label>
+							<%= f.email_field :email, :class => "form-control"%>
+						</div>
+
+						<div class="form-group">
+							<label for="exampleInputPassword1">Password</label>
+							<%= f.text_field :pass, :class => "form-control", :type => "password" %>
+						</div>
+
+						<div class="form-group">
+							<label for="exampleInputPassword1">Confirm Password</label>
+							<%= f.text_field :pass_confirmation, :class => "form-control", :type => "password" %>
+						</div>
+						<%= f.submit 'Submit', :class =>"btn btn-primary"%>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>

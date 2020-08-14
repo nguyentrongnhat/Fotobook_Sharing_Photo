@@ -48,8 +48,8 @@
     </div>
   </nav>
 
-  <% if flash[:sucess] %>
-    <div class="notice"><%= flash[:sucess] %></div>
+  <% if flash[:create_user_sucess] %>
+    <%= flash[:create_user_sucess] %>
   <% end %>
   
   <%= yield %>

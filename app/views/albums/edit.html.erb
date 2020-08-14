@@ -1,0 +1,16 @@
+<div class="container pt-3" style="background-color: white">
+	<div class="row form-edit">
+		<div>
+			<% @album.errors.full_messages.each do |error| %>
+				<div><%= error %></div>
+			<%end%>
+		
+		<div class="card" style="width: 18rem;">
+			<%= form_for @album, method: :put, :class => "form_edit_album" do |f| %>
+				<label>Title:</label>
+				<%= f.text_field :title, :class => "form-control" %><br>
+				<%= submit_tag 'Submit' %>
+			<% end %>
+		</div>
+	</div>
+</div>

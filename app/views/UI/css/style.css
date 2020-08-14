@@ -1,0 +1,47 @@
+.image {
+	display: block;
+	width:100%;
+	height:100%;
+	/*width: auto;*/
+}
+
+@media (min-width: 987px) {
+	.shadow{
+		height: 230px;
+		max-height: 230px;
+	}
+	.image {
+		display: block;
+		width:100%;
+		height:230px;
+		/*width: auto;*/
+	}
+}
+
+
+.model {
+	margin-top: 25px;
+	width: 250px;
+	
+}
+
+.photos_to_albums{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card-text{
+	max-height: 100px;
+	overflow: hidden;
+}
+
+.decrible{
+	background-color: #F8F8F8;
+}
+
+.shadow{
+	width: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	text-align: center;
+}

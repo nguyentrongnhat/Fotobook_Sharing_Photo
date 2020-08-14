@@ -1,0 +1,131 @@
+.image {
+	display: block;
+	width:100%;
+	height:100%;
+	/*width: auto;*/
+}
+
+
+@media (min-width: 987px) {
+	.shadow{
+		height:300px;
+		max-height: 300px;
+	}
+	.image {
+		display: block;
+		width:100%;
+		height:300px;
+		max-height: 300px;
+		/*width: auto;*/
+	}
+}
+
+@media (min-width: 768px) {
+	.shadow{
+		height: 300px;
+		max-height: 300px;
+	}
+	.image {
+		display: block;
+		width:100%;
+		height:300px;
+		max-height: 300px;
+		/*width: auto;*/
+	}
+}
+
+.model {
+	margin-top: 25px;
+	width: 300px;
+	
+}
+
+.photos_to_albums{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.mode_photo_button{
+	background-image: linear-gradient(#4e69a2, #3b5998 50%);
+}
+
+.mode_album_button{
+	background-image: linear-gradient(#FFFFFF, #FFFFFF 50%);
+	text-decoration: none;
+	color: #4e69a2;
+}
+
+}
+
+.card-text-decription{
+	max-height: 100px;
+	overflow: hidden;
+	font-size: 15px;
+	border-style: solid;
+	color: red;
+}
+
+
+.card-text-created_at{
+	position: absolute;
+	overflow: hidden;
+	font-size: 15px;
+	bottom: 0px;
+	right: 0px
+}
+
+.card-body{
+	max-height: 300px;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+}
+
+.react{
+	position: absolute;
+	bottom: 0px;
+}
+
+.decrible{
+	background-color: #F8F8F8;
+}
+
+.shadow{
+	width: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+nav{
+	background-image: linear-gradient(#4e69a2, #3b5998 50%);
+}
+
+.overide-footer{
+	position: relative;
+}
+body.modal-open .ab {
+	filter: blur(5px);
+}
+.modal-footer{
+	height: 60px
+}
+
+.decription_photo_show{
+	position: absolute;
+	left: 10px
+}
+
+#myModal{
+	padding-top: 200px;
+	opacity: 1.0;
+}
+
+body{
+	opacity: 1.0;
+}
+
+.form-edit{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

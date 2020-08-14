@@ -1,0 +1,41 @@
+
+<div class= "container pt-3" style="background-color: white">
+	<div class="row photos_to_albums">		
+		<div class="btn-group" role="group" aria-label="Basic example">
+			<%= link_to "Photos", feeds_photos_path, :class => "btn btn-secondary mode_album_button", :style => "color:#4e69a2;" %>
+			<%= link_to "Albums", feeds_albums_path, :class => "btn btn-secondary mode_photo_button"%>
+		</div>
+	</div>
+
+	<div class="row">
+		<% @albums.each_with_index do |album| %>	
+			<div class="col-12 col-sm-12 col-md-6 model">
+				<div class="row no-gutters">
+					
+					<div class="col-md-7" data-toggle="modal" data-target="#exampleModal">
+						<%= link_to detail_newst_path(album.id), :class => "show_album", :style=>"text-decoration: none; color: black" do %>
+							<img src=/images/image3.png alt="..." class="card-img image">
+						<% end %>
+					</div>
+					
+					<div class="col-md-5 decrible">
+						<div class="card-body">
+							<div>
+								<img src="/images/image3.png" alt="..." class="rounded-circle" style="width: 30px; height: 30px">
+								<span><%=album.user.firstname%></span>
+							</div>
+							<h5 class="card-title" style="text-align: center"><%= album.title %></h5>
+							<p class="card-text-decription" style="color: red"><%= album.decription %></p>
+							<p class="card-text-created_at"><i><small class="text-muted">Last updated 3 mins ago</small></i></p>
+							<p class="react" style="padding-right: 2px">
+								<i id="react" class="far fa-heart"></i>
+								<i style="padding-bottom: 3px">123</i>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+

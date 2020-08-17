@@ -1,9 +1,9 @@
 <div class="container pt-3" style="background-color: #FFFFFF;">
 	<div class="row photos_to_albums">
 		<div class="btn-group" role="group" aria-label="Basic example">
-			<%= link_to "Photos", feeds_photos_path, :class => "btn btn-secondary mode_photo_button" %>
+			<%= link_to "Photos", photos_path, :class => "btn btn-secondary mode_photo_button" %>
 
-			<%= link_to "Albums", feeds_albums_path, :class => "btn btn-secondary mode_album_button", :style => "color:#4e69a2;"%>
+			<%= link_to "Albums", albums_path, :class => "btn btn-secondary mode_album_button", :style => "color:#4e69a2;"%>
 		</div>
 	</div>
 	<div class="row">
@@ -43,11 +43,11 @@
 								</div>
 								<h5 class="card-title" style="text-align: center"><%= photo.title %></h5>
 								<p class="card-text-decription" style="color: red"><%= photo.decription %></p>
-								<p class="card-text-created_at"><i><small class="text-muted">Last updated 3 mins ago</small></i></p>
+								<p class="card-text-created_at"><i><small class="text-muted">3 mins ago</small></i></p>
 
 								<p class="react" style="padding-right: 2px">
 								<i id="react" class="far fa-heart"></i>
-								<i style="padding-bottom: 3px">123</i>
+								<i style="padding-bottom: 3px"><%= photo.reacts.size %></i>
 							</p>
 							</div>
 							

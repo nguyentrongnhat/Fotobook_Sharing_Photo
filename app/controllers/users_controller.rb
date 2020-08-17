@@ -7,9 +7,10 @@ class UsersController < ApplicationController
   	@user = User.new param_permit
   	if @user.save
   		flash[:create_user_sucess] = "create sucess fullly"
-  		UserMailer.welcome_mail(@user).deliver_now
+  		send_mail(@user)
   		#UserMailer.with(:user: @user).welcome_mail.deliver_now
-  		render "welcome"
+  		#render "welcome"
+      redirect_to photos_path
   	else
   		render "new"
   	end	
@@ -22,5 +23,9 @@ class UsersController < ApplicationController
 
    def welcome
    	
+   end
+
+   def send_mail(user)
+    JobSendMailJob.set(wait: 3.seconds).perform_later(user)
    end
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users, :photos, :albums
   get "/login/", to: "logins#index"
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
   get "feeds/album/:id/", to: "albums#show", as: :detail_newst
 
   get "react/photo/:id_photo/:id_user", to: "reacts#photo", as: :react_photos
-
+  root to: "photos#index"
   namespace :admin do
     resources :photos, :albums, :users
   end

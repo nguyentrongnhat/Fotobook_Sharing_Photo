@@ -2,7 +2,9 @@
 <html>
 <head>
   <title>Fotobook</title>
+  
   <%= csrf_meta_tags %>
+  
   <%= csp_meta_tag %>
 
   <%= stylesheet_link_tag 'application', media: 'all'%>
@@ -31,20 +33,29 @@
   
   <title>Fotobook</title>
 
-<body style="background-color:#F8F8F8;">
-  <nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top">
+<body style="background-color:#F8F8F8;" class="body">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top nav-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#" style="color:white">Fotobook</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
+      <a class="navbar-brand" href="#" style="color: white">Fotobook</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="form-inline my-2 my-lg-0">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline mr-auto">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+
+        <div class="navbar-nav my-2 my-lg-0">
+          <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Logout", destroy_user_session_path, :class => "nav-link", :style => "color: white", :method => "delete" %>
+          </li>
+          <% end %>    
       </div>
-      <a class="navbar-brand" href="#" style="color:white">Logout</a>
+
+    </div>
     </div>
   </nav>
 

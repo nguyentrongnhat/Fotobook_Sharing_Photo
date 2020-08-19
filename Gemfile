@@ -21,6 +21,25 @@ gem 'jbuilder', '~> 2.7'
 gem "jquery-validation-rails"
 
 gem 'sidekiq', '~> 6.1', '>= 6.1.1'
+
+gem 'kaminari', '~> 1.2', '>= 1.2.1'
+
+gem 'ransack', '~> 2.3', '>= 2.3.2'
+
+gem 'bootstrap', '~> 4.0.0.alpha6'
+
+gem 'bootstrap_form', '~> 4.5'
+
+gem 'kaminari-bootstrap', '~> 3.0', '>= 3.0.1'
+
+gem 'bootstrap4-kaminari-views', '~> 1.0', '>= 1.0.1'
+
+gem 'twitter_bootstrap-kaminari-views', '~> 0.1.0'
+
+gem 'devise', '~> 4.7', '>= 4.7.2'
+
+gem 'carrierwave', '~> 2.1', github: 'carrierwaveuploader/carrierwave'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

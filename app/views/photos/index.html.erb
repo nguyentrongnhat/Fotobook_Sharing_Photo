@@ -31,6 +31,7 @@
 	<div class="row ab">
 		<% @photos.each_with_index do |photo| %>	
 			<div class="col-12 col-sm-12 col-md-6 model">
+				<div class="card">
 					<div class="row no-gutters">
 						<div class="col-md-7" data-toggle="modal" data-target="#exampleModal">
 							<img src=<%= photo.source %> alt="..." class="card-img image shadow">
@@ -43,7 +44,7 @@
 								</div>
 								<h5 class="card-title" style="text-align: center"><%= photo.title %></h5>
 								<p class="card-text-decription" style="color: red"><%= photo.decription %></p>
-								<p class="card-text-created_at"><i><small class="text-muted">3 mins ago</small></i></p>
+								<p class="card-text-created_at"><i><small class="text-muted"><%= photo.created_at %></small></i></p>
 
 								<p class="react" style="padding-right: 2px">
 								<i id="react" class="far fa-heart"></i>
@@ -53,7 +54,13 @@
 							
 						</div>
 					</div>
+				</div>	
 			</div>
 		<% end %>
+	</div>
+
+	
+	<div class="row pt-5 photos_to_albums">
+		<%= paginate @photos, theme: 'twitter-bootstrap-4' %>
 	</div>
 </div>

@@ -1,6 +1,3 @@
-<h1>Album title: <%= @album.title %></h1>
-<p>created at: <%= @album.created_at %> </p>
-
 <div class= "container pt-3" style="background-color: white">
 
 	<div class="row">
@@ -25,20 +22,26 @@
 	</div>
 
 	<div class="row">
-		<% @photos.each do |photo| %>	
-			<div class="col-12 col-sm-12 col-md-6 model">
-					<div class='row no-gutters shadow'>
-						<div class='col-md-7'>
-							<img src=<%= photo.source %> alt="..." class="card-img image">
-						</div>
-						<div class='col-md-5 decrible'>
-							<div class='card-body' style='background-color: #F8F8F8'>
-								<h5 class='card-title'>tên ảnh: <%= photo.title %></h5>
-								<p class='card-text'>ngày tạo: <%= photo.created_at %></p>
-								<i class='fas fa-heart'></i>
-							</div>
-						</div>
-					</div>
+		<div class="col-12 col-sm-4 col-md-4 col-lg-4">
+			<div class="cover-thumnail">
+				<img src=<%= @album.source %> class="one-photos rounded" style="width: 230px; height: 230px" alt="...">
+			</div> 
+		</div>
+		<div class="col-12 col-sm-8 col-md-8 col-lg-8">
+			<div class="cover-thumnail">
+				<h1 class="name-account"><%= @album.title %></h1>
+				<h3><%= @album.decription %></h3>
+			</div> 
+		</div>
+		<hr>
+	</div>
+
+	<div class="row pt-5">
+		<% @photos.each do |photo| %>
+			<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="cover-thumnail">
+					<img src=<%= photo.source %> class="one-photos rounded" style="width: 230px; height: 230px" alt="...">
+				</div> 
 			</div>
 		<% end %>
 	</div>

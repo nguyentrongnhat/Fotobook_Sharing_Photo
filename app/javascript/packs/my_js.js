@@ -2,15 +2,18 @@ require("jquery")
 require("jquery-validation")
 
 $(document).ready(function(){
+
 	$(".shadow").click(function(){
-		var source = $(this).attr("src");
-		var title_show = $(this).parent().next().children().children().first().text()
-		var decription_show = $(this).parent().next().children().children().first().next().text()
-		var src = $(".myModal").children().children().children().first().next().children().attr("src", source);
-		$(".myModal").children().children().children().first().children().first().text(title_show);   	
-  	$(".myModal").children().children().children().eq(2).children().text(decription_show)
-  	console.log(source)
-  	//$("#myModal").show()
+		var parent = $(this).closest( "div" ).closest( "div" );
+		var source = parent.find(".shadow").attr("src");
+		var title = parent.find(".card-title").text();
+		var decription = parent.find(".card-text-decription").text();
+		$(".modal-title").text(title); 
+		$(".image-modal").attr("src", source);
+  		$(".modal-footer").text(decription)
+  		console.log(source)
+  		console.log(title)
+  		console.log(decription)
   	});
 
   	$(".close").click(function(){
@@ -39,16 +42,18 @@ $(document).ready(function(){
 		if($(this).attr("class") == "fas fa-heart"){
 			$(this).attr("class", "far fa-heart");
 			console.log($(this).attr("class"));
-			var num = parseInt($(this).next().text());
+			var num = parseInt($(this).parent().next().text());
 			num = num - 1;
-			$(this).next().text(num)
+			console.log(num)
+			$(this).parent().next().text(num)
 		}
 		else if($(this).attr("class") == "far fa-heart"){
 			$(this).attr("class", "fas fa-heart");
 			console.log($(this).attr("class"));
-			var num = parseInt($(this).next().text());
+			var num = parseInt($(this).parent().next().text());
 			num = num + 1;
-			$(this).next().text(num)
+			console.log(num)
+			$(this).parent().next().text(num)
 		}
 	});
 

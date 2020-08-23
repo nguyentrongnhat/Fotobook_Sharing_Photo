@@ -1,0 +1,181 @@
+.cover-thumnail{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 100px;
+}
+
+.one{
+	border: 1px solid white;
+	height: 200px;
+	width: 200px;
+	transform: rotate(12deg);
+}
+
+.two{
+	border: 1px solid white;
+	position: absolute;
+	top: 0px;
+	height: 200px;
+	width: 200px;
+	transform: rotate(5deg);
+}
+
+.three{
+	border: 1px solid white;
+	position: absolute;
+	top: 0px;
+	height: 200px;
+	width: 200px;
+}
+
+nav.navbar{
+	position: sticky;
+	top: 0;
+}
+
+.avatar{
+	height: 300px;
+	width: 300px;
+}
+.cover-avatar-card{
+	display: flex;
+	justify-content: center;
+	padding-top: 30px;
+}
+
+.card-avatar{
+	height: 100px;
+	width: 100px;
+}
+
+.name-account{
+	font-size: 500%;
+	font-family: Arial, Helvetica;
+	padding-top: 10px;
+}
+
+.follow{
+	margin-top: 40px;
+	display: inline;
+	background: linear-gradient(#EB5B56, #F2974B);
+	border-radius: 8px;
+	display: inline-block;
+	/*padding: 5px;*/
+	padding: 3px;
+}
+
+.follow span {
+	background:white;
+	display: block;
+	padding: 0.3em 0.7em;
+	border-radius: 100px;
+}
+
+.follow-text{
+	font-size: 15px;
+	background: -webkit-linear-gradient(#EB5B56, #F2974B);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+
+.following{
+	margin-top: 40px;
+	display: inline;
+	background: linear-gradient(#EB5B56, #F2974B);
+	border-radius: 8px;
+	display: inline-block;
+	padding: 2px;
+}
+
+.following span {
+	color: black;
+	display: block;
+	padding: 0.3em 0.7em;
+	border-radius: 100px;
+}
+
+.following-text{
+	font-size: 15px;
+	background: -webkit-linear-gradient(#FFFFFF, #FFFFFF);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+
+.edit-profile{
+	margin-top: 40px;
+	display: inline;
+	background: linear-gradient(#3C5999, #3C5999);
+	border-radius: 8px;
+	display: inline-block;
+	/*padding: 5px;*/
+	padding: 3px;
+}
+
+.edit-profile span {
+	background:white;
+	display: block;
+	padding: 0.3em 0.7em;
+	border-radius: 100px;
+}
+
+.edit-profile-text{
+	font-size: 15px;
+	background: -webkit-linear-gradient(#3C5999, #3C5999);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+
+.follow-card{
+	display: flex;
+	justify-content: center;
+}
+
+
+
+.num-photo-album-profile-card{
+	font-size: 24px;
+	text-align: center;
+	color: #3C5999;
+	display: block;
+}
+
+.photo-album-profile-card{
+	font-size: 12px;
+	text-align: center;
+	color: #3C5999;
+	display: block;
+}
+
+.link-in-profiles{
+	text-decoration: none;
+	color: #3C5999;
+}
+
+.list-inline-item:{
+	color: #3C5999;
+	
+}
+
+.inline-item{
+	display: inline;
+	color: #828282;
+
+}
+
+.inline-item-choice{
+	display: inline;
+	font-weight: bold;
+	color: #3C5999;
+}
+
+.choice{
+	color: #3C5999;
+	font-weight: bold;
+}
+
+@media only screen and (max-width: 991px) {
+	.text-profile{
+		text-align: center;
+  }
+}

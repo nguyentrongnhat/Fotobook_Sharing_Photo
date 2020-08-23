@@ -20,43 +20,15 @@
 					<div class="modal-body">
 						<img src="source" alt="..." class="card-img image-modal">
 					</div>
-					<div class="modal-footer overide-footer">
-						<p></p>
-					</div>
+					<div class="modal-footer overide-footer"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="row ab">
-		<% @photos.each_with_index do |photo| %>	
-			<div class="col-12 col-sm-12 col-md-6 model">
-				<div class="card">
-					<div class="row no-gutters">
-						<div class="col-md-7" data-toggle="modal" data-target="#exampleModal">
-							<img src=<%= photo.source %> alt="..." class="card-img image shadow">
-						</div>
-						<div class="col-md-5 decrible">
-							<div class="card-body">
-								<div>
-									<img src="/images/image3.png" alt="..." class="rounded-circle" style="width: 30px; height: 30px">
-									<span><%=photo.user.firstname%></span>
-								</div>
-								<h5 class="card-title" style="text-align: center"><%= photo.title %></h5>
-								<p class="card-text-decription" style="color: red"><%= photo.decription %></p>
-								<p class="card-text-created_at"><i><small class="text-muted"><%= photo.created_at %></small></i></p>
+	<div class="row ab photo-lists">
+		<%= render 'photos_container', photos: @photos%>
 
-								<p class="react" style="padding-right: 2px">
-								<i id="react" class="far fa-heart"></i>
-								<i style="padding-bottom: 3px"><%= photo.reacts.size %></i>
-							</p>
-							</div>
-							
-						</div>
-					</div>
-				</div>	
-			</div>
-		<% end %>
 	</div>
 
 	

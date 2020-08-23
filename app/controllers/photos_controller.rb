@@ -3,6 +3,7 @@ class PhotosController < ApplicationController
   	check_login
     @user = current_user
   	@photos = Photo.all.page params[:page]
+
   end
 
 
@@ -17,7 +18,6 @@ class PhotosController < ApplicationController
     check_login
     @user = current_user
   	@photo = @user.photos.new param_permit
-    byebug
   	if @photo.save
   		flash[:create_photo_sucess] = "create sucess fullly"
       redirect_to photos_path

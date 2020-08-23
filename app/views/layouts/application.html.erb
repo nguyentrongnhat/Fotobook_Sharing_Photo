@@ -26,6 +26,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <link rel="stylesheet" type="text/css" href="/awesome/css/all.css">
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   
@@ -34,29 +35,37 @@
   <title>Fotobook</title>
 
 <body style="background-color:#F8F8F8;" class="body">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top nav-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#" style="color: white">Fotobook</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark nav-top">
+    <a class="navbar-brand" href=<%= photos_path %> style="color: white;">Fotobook</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-      </button>
-
+    </button>
+    <% if user_signed_in? %>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <form class="form-inline mr-auto">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 502px; height: 40px;">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-
-        <div class="navbar-nav my-2 my-lg-0">
-          <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Logout", destroy_user_session_path, :class => "nav-link", :style => "color: white", :method => "delete" %>
+        <ul class="navbar-nav pt-0 pb-0">
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+              <img src=<%= current_user.avatar %> class="rounded-circle avatar-nav">
+              <%= current_user.firstname + " " + current_user.lastname %>
+            </a>
+            
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-right: 50px;">
+              <%= link_to "Your Profile", profiles_path(current_user.id), :class => "dropdown-item", :method => "GET" %>
+              <%= link_to "Create Photo", new_photo_path, :class => "dropdown-item", :method => "GET" %>
+              <%= link_to "Create Album", new_album_path, :class => "dropdown-item", :method => "GET" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Logout", destroy_user_session_path, :class => "dropdown-item", :method => "DELETE" %>
+            </div>
           </li>
-          <% end %>    
+        
+        </ul>
       </div>
-
-    </div>
-    </div>
+    <% end %>
   </nav>
 
   <% if flash[:create_user_sucess] %>

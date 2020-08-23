@@ -1,0 +1,86 @@
+/*Signin*/
+
+.images-login{
+	height: 150px;
+	width: 150px;
+	
+}
+
+.cover-image-login{
+	padding-top: 10px;
+	padding-bottom: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.card-head{
+	display: flex;
+	justify-content: center;
+	margin: auto;
+	width: 346px;
+	height: 115px;
+}
+
+.card-form{
+	display: flex;
+	justify-content: center;
+	margin: auto;
+	/* Rectangle */
+	width: 346px;
+	height: 420px;
+	background: #F9F9F9;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+
+}
+
+.row-form{
+	margin-top: 30px;
+}
+
+.head-login{
+	margin:auto;
+	width: 350px;
+	height: 47px;
+	text-align: center;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 45px;
+	line-height: 47px;
+	/* identical to box height */
+	display: flex;
+	align-items: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	color: #3C5999;
+}
+
+.actions-login{
+	display: flex;
+	justify-content: center;
+}
+
+.btn-login{
+	background-color: #3C5999;
+}
+
+.logo{
+	width: 70px;
+	height: 70px;
+}
+
+/*Signup*/
+
+.card-form-signup{
+	display: flex;
+	justify-content: center;
+	margin: auto;
+	/* Rectangle */
+	width: 346px;
+	height: 600px;
+	max-height: 600px;
+	background: #F9F9F9;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+
+}

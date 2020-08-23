@@ -1,0 +1,39 @@
+<% @photos.each do |photo| %>	
+	<div class="col-12 col-sm-12 col-md-6 model">
+		<div class="card">
+			<div class="row no-gutters">
+				<div class="col-md-7" data-toggle="modal" data-target="#exampleModal">
+					<img src=<%= photo.source %> alt="..." class="card-img image shadow">
+				</div>
+				<div class="col-md-5 decrible">
+					<div class="card-body">
+						<div>
+							<%= link_to profiles_path(photo.user.id), :style=> "text-decoration: none;" do %>
+								<img src=<%=photo.user.avatar%> alt="..." class="rounded-circle" style="width: 40px; height: 40px">
+								<span class="user-name-photo"><%=photo.user.firstname + " " + photo.user.lastname %></span>
+							<% end %>
+						</div>
+						<h5 class="card-title"><%= photo.title %></h5>
+						<p class="card-text-decription"><%= photo.decription %></p>
+						<p class="card-text-created_at"><i><small class="text-muted"><%= photo.created_at %></small></i></p>
+
+						<p class="react" style="padding-right: 2px">
+							<% if photo.reacts.where(user_react: current_user.id).size == 0 %>
+								<%= link_to react_photos_path(photo.id, current_user), class: "btn-like", :method => "post" do %>
+									<span id="react" class="far fa-heart" style="color: #3b5998;"></span>
+								<% end %>
+							<% else %>
+								<%= link_to unreact_photos_path(photo.id, current_user), class: "btn-unlike", :method => "put" do %>
+									<span id="react" class="fas fa-heart" style="color: #3b5998;"></span>
+								<% end %>
+							<% end %>
+							
+							<span style="padding-bottom: 3px; color: #4e69a2;"><%= photo.count_of_reacts %></span>
+						</p>
+					</div>
+					
+				</div>
+			</div>
+		</div>	
+	</div>
+<% end %>

@@ -1,0 +1,89 @@
+<div class="container pt-5" style="background-color: white">
+  <div class="row cover-avatar">
+    <div class="col-12 col-md-12 col-lg-4" style="text-align: center;">
+      <img src=<%= @profile_user.avatar %> class="rounded-circle avatar" style="display: inline-block;">
+    </div>
+
+    <div class="col-12 col-md-12 col-lg-8 text-profile">
+      <div class="text-profile-sub">
+        
+        <% if @profile_user.id != current_user.id %>
+          <% if @cmp == 0 %>
+            <div class="rounded-pill follow">
+              <span><strong class="follow-text">follow</strong></span>
+            </div>
+          <% else %>
+            <div class="rounded-pill following">
+              <span><strong class="following-text">following</strong></span>
+            </div>
+          <% end %>
+        <% elsif @profile_user.id == current_user.id %>
+
+          <div class="rounded-pill edit-profile">
+            <span><strong class="edit-profile-text">edit profile</strong></span>
+          </div>
+        <% end %>
+
+        <h1 class="name-account"><%= @profile_user.firstname + " " + @profile_user.lastname %></h1>
+        <ul>
+          
+          <li class="list-inline-item">
+            <%= link_to profiles_path(@profile_user.id), :class=>"link-in-profiles", :style=>"text-decoration: none;" do %>
+              <h3 class="inline-item"><%= @profile_user.count_of_photos %></h3> PHOTOS  &verbar;
+            <% end %>
+          </li>
+          
+          <li class="list-inline-item">
+            <%= link_to profiles_albums_path(@profile_user.id), :class=>"link-in-profiles", :style=>"text-decoration: none;" do %>
+              <h3 class="inline-item"><%= @profile_user.count_of_albums %></h3> ALBUMS  &verbar;
+            <% end %>
+          </li>
+          
+          <li class="list-inline-item choice">
+            <%= link_to profiles_followings_path(@profile_user.id), :class=>"link-in-profiles", :style=>"text-decoration: none;" do %>
+              <h3 class="inline-item-choice"><%= @profile_user.count_of_followings %></h3> FOLLOWINGS  &verbar;
+            <% end %>
+          </li>
+          
+          <li class="list-inline-item">
+            <%= link_to profiles_followers_path(@profile_user.id), :class=>"link-in-profiles", :style=>"text-decoration: none;" do %>
+              <h3 class="inline-item">0</h3> FOLLOWERS
+            <% end %>
+          </li>
+        
+        </ul>
+      </div>      
+    </div>
+  </div>
+
+  <div class="row pt-5">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="margin-bottom: 30px;">
+      <div class="card rounded">
+        <div class="cover-avatar-card">
+          <img src="avatar.jpg" class="rounded-circle card-avatar" style="display: inline-block;">
+        </div>
+        <div class="card-body container">
+            <div class="row">
+              <div class="col-6">
+                <strong class="num-photo-album-profile-card">22</strong>
+                <strong class="photo-album-profile-card">PHOTOS</strong>
+              </div>
+              <div class="col-6">
+                <strong class="num-photo-album-profile-card">22</strong>
+                <strong class="photo-album-profile-card">ALBUMS</strong>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="follow-card">
+                  <div class="rounded-pill follow">
+                    <span><strong class="follow-text">unfollow</strong></span>
+                  </div>
+                </div>
+              </div> 
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

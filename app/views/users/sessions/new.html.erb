@@ -1,26 +1,63 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container">
+  <div class="row">
+    <h2 class="head-login">Fotobook Login</h2>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class="row">
+    <div class="card card-head">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <img src="/images/logo/photo.png" class="logo rounded-circle">
+          </div>
+          <div class="col">
+            <img src="/images/logo/logo_facebook.png" class="logo rounded-circle">
+          </div>
+          <div class="col">
+            <img src="/images/logo/loto_twit.png" class="logo rounded-circle">
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
 
-<%= render "users/shared/links" %>
+  <div class="row row-form">
+    <div class="col-12">
+      <div class="card card-form">
+      <div class="card-body" style="width: 346px; height: 420px; max-height: 420px;">    
+        <div class="cover-image-login">
+          <image src="/images/logo/photo1.png" class="image-login rounded-circle">
+        </div>
+        
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field form-group">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", :class=>"form-control", :placeholder=>"Email" %>
+          </div>
+
+          <div class="field form-group">
+            <%= f.password_field :password, autocomplete: "current-password", :class=>"form-control", :placeholder=>"Password" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+
+          <div class="actions actions-login">
+            <%= f.submit "Log in", :class=>"btn btn-primary btn-login" %>
+          </div>
+
+          <%= render "users/shared/links" %>
+        <% end %>
+      </div>
+    </div>
+    </div> 
+  </div>
+</div>
+
+
+
+
+
+

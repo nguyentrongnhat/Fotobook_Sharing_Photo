@@ -4,6 +4,28 @@ class AlbumsController < ApplicationController
 	 	@albums = Album.where(:status => true).order(created_at: :desc).limit(6)
 	end
 
+	def new
+		check_login
+	    @user = current_user
+	  	@album = @user.albums.new
+	end
+
+	def create
+		require 'carrierwave/orm/activerecord'
+	    check_login
+	    @user = current_user
+	  	@album = @user.albums.create param_permit_create
+	  	if @album
+	  		@photo = @user.photos.create param_permit_create
+	  		@aps = @album.aps.create(album_id: @album.id, photo_id: @photo.id)
+	  		puts "FUCKKKKKK"
+	  		flash[:create_photo_sucess] = "create sucess fullly"
+	     	redirect_to albums_path
+	  	else
+	  		render "new"
+	  	end	
+	end
+
 	def show
 	  @album = Album.find(params[:id])
 	  @aps = Ap.where(album_id: params[:id])
@@ -34,6 +56,10 @@ class AlbumsController < ApplicationController
 	end
 
 	private
+		def param_permit_create
+			params.require(:album).permit(:title, :decription, :source, :status)
+		end
+
 		def param_permit
 			params.require(:album).permit(:title)
 		end

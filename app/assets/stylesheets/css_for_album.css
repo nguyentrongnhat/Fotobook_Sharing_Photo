@@ -1,0 +1,31 @@
+.cover-thumnail-album{
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+
+.one-album{
+	position: absolute;
+	border: 1px solid white;
+	height: 230px;
+	width: 230px;
+	transform: rotate(12deg);
+	top: 20px;
+}
+
+.two-album{
+	border: 1px solid white;
+	position: absolute;
+	top: 20px;
+	height: 230px;
+	width: 230px;
+	transform: rotate(5deg);
+}
+
+.three-album{
+	border: 1px solid white;
+	position: absolute;
+	top: 20px;
+	height: 230px;
+	width: 230px;
+}

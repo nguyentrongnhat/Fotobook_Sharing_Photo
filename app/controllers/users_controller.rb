@@ -4,8 +4,12 @@ class UsersController < ApplicationController
   end
 
   def create
+    require 'carrierwave/orm/activerecord'
   	@user = User.new param_permit
+    
   	if @user.save
+      byebug
+      @avatar = User.last.photos.create(source: params[:user][:avatar], title: "New Avatar") 
   		flash[:create_user_sucess] = "create sucess fullly"
   		send_mail(@user)
   		#UserMailer.with(:user: @user).welcome_mail.deliver_now
@@ -18,7 +22,11 @@ class UsersController < ApplicationController
 
   private
     def param_permit
-      params.require(:user).permit :firstname, :lastname, :pass, :pass_confirmation, :email
+      params.require(:user).permit (:firstname, :lastname, :pass, :pass_confirmation, :email, :avatar)
+    end
+
+    def param_permit_photo
+      params.require(:user).permit (:avatar)
     end
 
    def welcome

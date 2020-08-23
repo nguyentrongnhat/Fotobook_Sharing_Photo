@@ -1,0 +1,47 @@
+<% @albums.each do |album| %>	
+	<div class="col-12 col-sm-12 col-md-6 model">
+		<div class="card">
+			<div class="row no-gutters">
+				
+				<div class="col-md-7" data-toggle="modal" data-target="#exampleModal" style="background-color: #F8F8F8;">
+					<%= link_to album_path(album.id) do %>
+						<div class="cover-thumnail-album">
+							<img src=<%= album.source %> class="one-album" alt="...">
+							<img src=<%= album.source %> class="two-album" alt="...">
+							<img src=<%= album.source %> class="three-album" alt="...">
+						</div>
+					<% end %> 
+				</div>
+				
+				<div class="col-md-5 decrible">
+					<div class="card-body">
+						<div>
+							<%= link_to profiles_path(album.user.id), :style=> "text-decoration: none;" do %>
+								<img src=<%=album.user.avatar%> alt="..." class="rounded-circle" style="width: 40px; height: 40px">
+								<span class="user-name-photo"><%=album.user.firstname + " " + album.user.lastname %></span>
+							<% end %>
+						</div>
+						<h5 class="card-title"><%= album.title %></h5>
+						<p class="card-text-decription"><%= album.decription %></p>
+						<p class="card-text-created_at"><i><small class="text-muted"><%= album.created_at %></small></i></p>
+
+						<p class="react" style="padding-right: 2px">
+							<% if album.reacts.where(user_react: current_user.id).size == 0 %>
+								<%= link_to react_albums_path(album.id, current_user), class: "btn-like", :method => "post" do %>
+									<span id="react" class="far fa-heart" style="color: #3b5998;"></span>
+								<% end %>
+							<% else %>
+								<%= link_to unreact_albums_path(album.id, current_user), class: "btn-unlike", :method => "put" do %>
+									<span id="react" class="fas fa-heart" style="color: #3b5998;"></span>
+								<% end %>
+							<% end %>
+							
+							<span style="padding-bottom: 3px; color: #4e69a2;"><%= album.count_of_reacts %></span>
+						</p>
+					</div>
+					
+				</div>
+			</div>
+		</div>	
+	</div>
+<% end %>

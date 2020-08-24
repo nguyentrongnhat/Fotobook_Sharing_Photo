@@ -3,7 +3,7 @@
 		<div class="card">
 			<div class="row no-gutters">
 				
-				<div class="col-md-7" data-toggle="modal" data-target="#exampleModal" style="background-color: #F8F8F8;">
+				<div class="col-lg-6" data-toggle="modal" data-target="#exampleModal" style="background-color: #F8F8F8;">
 					<%= link_to album_path(album.id) do %>
 						<div class="cover-thumnail-album">
 							<img src=<%= album.source %> class="one-album" alt="...">
@@ -13,7 +13,7 @@
 					<% end %> 
 				</div>
 				
-				<div class="col-md-5 decrible">
+				<div class="col-lg-6 decrible">
 					<div class="card-body">
 						<div>
 							<%= link_to profiles_path(album.user.id), :style=> "text-decoration: none;" do %>

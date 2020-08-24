@@ -57,10 +57,16 @@
   </div>
   <div class="row pt-5">
     <% @photos.each do |photo| %>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="cover-thumnail">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="">
+        <div class="cover-photo-profile">
           <img src=<%= photo.source %> class="one-photos rounded" style="width: 230px; height: 230px" alt="...">
         </div> 
+        <div style="display: flex;justify-content: center;align-items: center; margin-top: 5px;">
+          <div class="rounded-pill edit-profile" style="margin: auto;">
+            <span><strong class="edit-profile-text">edit photo</strong></span>
+          </div>
+        </div>
+        
       </div>
     <% end %>
   </div>

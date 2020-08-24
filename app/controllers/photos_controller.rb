@@ -19,11 +19,25 @@ class PhotosController < ApplicationController
     @user = current_user
   	@photo = @user.photos.new param_permit
   	if @photo.save
-  		flash[:create_photo_sucess] = "create sucess fullly"
+  		flash[:ucess] = "create sucess fullly"
       redirect_to photos_path
   	else
   		render "new"
   	end	
+  end
+
+  def edit
+    @photo = Photo.find(params[:id])
+  end
+
+  def update
+    @photo = Photo.find(params[:id])
+    if @photo.update(param_permit)
+      flash[:notice] = "Photo have successfully edit."
+      redirect_to profiles_path(current_user.id)
+    else
+      render "edit"
+    end
   end
 
   def check_login
@@ -34,7 +48,10 @@ class PhotosController < ApplicationController
 
   private
     def param_permit
-      params.require(:photo).permit :title, :decription, :status, :source
+      if(params[:source] == "")
+        params.require(:photo).permit :title, :decription, :status
+      else
+        params.require(:photo).permit :title, :decription, :status, :source
+      end
     end
 end
-#doc lai strong parameter

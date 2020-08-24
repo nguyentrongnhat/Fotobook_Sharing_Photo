@@ -7,22 +7,7 @@
     <div class="col-12 col-md-12 col-lg-8 text-profile">
       <div class="text-profile-sub">
         
-        <% if @profile_user.id != current_user.id %>
-          <% if @cmp == 0 %>
-            <div class="rounded-pill follow">
-              <span><strong class="follow-text">follow</strong></span>
-            </div>
-          <% else %>
-            <div class="rounded-pill following">
-              <span><strong class="following-text">following</strong></span>
-            </div>
-          <% end %>
-        <% elsif @profile_user.id == current_user.id %>
-
-          <div class="rounded-pill edit-profile">
-            <span><strong class="edit-profile-text">edit profile</strong></span>
-          </div>
-        <% end %>
+        <%= render 'follow_container', profile_user: @profile_user %>
 
         <h1 class="name-account"><%= @profile_user.firstname + " " + @profile_user.lastname %></h1>
         <ul>
@@ -47,7 +32,7 @@
           
           <li class="list-inline-item">
             <%= link_to profiles_followers_path(@profile_user.id), :class=>"link-in-profiles", :style=>"text-decoration: none;" do %>
-              <h3 class="inline-item">0</h3> FOLLOWERS
+              <h3 class="inline-item"><%= @followers.size %></h3> FOLLOWERS
             <% end %>
           </li>
         
@@ -57,33 +42,61 @@
   </div>
 
   <div class="row pt-5">
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="margin-bottom: 30px;">
-      <div class="card rounded">
-        <div class="cover-avatar-card">
-          <img src="avatar.jpg" class="rounded-circle card-avatar" style="display: inline-block;">
-        </div>
-        <div class="card-body container">
-            <div class="row">
-              <div class="col-6">
-                <strong class="num-photo-album-profile-card">22</strong>
-                <strong class="photo-album-profile-card">PHOTOS</strong>
-              </div>
-              <div class="col-6">
-                <strong class="num-photo-album-profile-card">22</strong>
-                <strong class="photo-album-profile-card">ALBUMS</strong>
-              </div>
+    <% @followings.each do |following| %>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="margin-bottom: 30px;">
+        <div class="card rounded card-followings" style="background-color: #F8F8F8;">
+          <%= link_to profiles_path(following.id), :style=> "text-decoration: none;" do %>
+            <div class="cover-avatar-card">
+              <img src=<%= following.avatar %> class="rounded-circle card-avatar" style="display: inline-block;">
             </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="follow-card">
-                  <div class="rounded-pill follow">
-                    <span><strong class="follow-text">unfollow</strong></span>
+          <% end %>
+          <div class="card-body" style="max-height: 180px; width: 100%">
+              <div class="container">
+                <div class="row cover-name-followings">
+                  <p class="name-followings"><%= following.firstname + " " + following.lastname %></p>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <strong class="num-photo-album-profile-card"><%= following.count_of_photos %></strong>
+                    <strong class="photo-album-profile-card">PHOTOS</strong>
+                  </div>
+                  <div class="col-6">
+                    <strong class="num-photo-album-profile-card" style="font-size: 24px; text-align: center; color: #3C5999; display: block;"><%= following.count_of_albums %></strong>
+                    <strong class="photo-album-profile-card">ALBUMS</strong>
                   </div>
                 </div>
-              </div> 
+                <div class="row">
+                  <div class="col-12" style="padding-top: 0px;">
+                    <div class="follow-card" style="margin-top: 0px;">
+                      <% if @profile_user.id == current_user.id %>
+                        <%= link_to follows_destroy_path(following.id), :style=>"text-decoration:none;", :method=>"POST" do %>
+                          <div class="rounded-pill follow-down">
+                            <span><strong class="follow-down-text">unfollow</strong></span>
+                          </div>
+                        <% end %>
+                      <% else %>
+                        <% if current_user.id != following.id %>
+                          <% @cmp_extra = current_user.follows.where(id_following: following.id).size %>   
+                          <% if @cmp_extra == 0 %>
+                            <%= link_to follows_create_path(following.id), :style=>"text-decoration:none;", :method=>"POST" do %>
+                              <div class="rounded-pill follow-down">
+                                <span><strong class="follow-down-text">follow</strong></span>
+                              </div>
+                            <% end %>
+                          <% else %>
+                            <div class="rounded-pill following-down">
+                              <span><strong class="following-down-text">following</strong></span>
+                            </div>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div> 
+                </div>
+              </div>
             </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

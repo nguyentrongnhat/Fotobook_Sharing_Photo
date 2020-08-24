@@ -7,22 +7,8 @@
     <div class="col-12 col-md-12 col-lg-8 text-profile">
       <div class="text-profile-sub">
         
-        <% if @profile_user.id != current_user.id %>
-          <% if @cmp == 0 %>
-            <div class="rounded-pill follow">
-              <span><strong class="follow-text">follow</strong></span>
-            </div>
-          <% else %>
-            <div class="rounded-pill following">
-              <span><strong class="following-text">following</strong></span>
-            </div>
-          <% end %>
-        <% elsif @profile_user.id == current_user.id %>
-
-          <div class="rounded-pill edit-profile">
-            <span><strong class="edit-profile-text">edit profile</strong></span>
-          </div>
-        <% end %>
+        <%= render 'follow_container', profile_user: @profile_user %>
+        
         <h1 class="name-account"><%= @profile_user.firstname + " " + @profile_user.lastname %></h1>
         <ul>
           
@@ -46,7 +32,7 @@
           
           <li class="list-inline-item">
             <%= link_to profiles_followers_path(@profile_user.id), :class=>"link-in-profiles", :style=>"text-decoration: none;" do %>
-              <h3 class="inline-item">0</h3> FOLLOWERS
+              <h3 class="inline-item"><%= @followers.size %></h3> FOLLOWERS
             <% end %>
           </li>
         
@@ -55,18 +41,22 @@
       
     </div>
   </div>
-  <div class="row pt-5">
+  <div class="row pt-5 pb-5">
     <% @photos.each do |photo| %>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="">
         <div class="cover-photo-profile">
           <img src=<%= photo.source %> class="one-photos rounded" style="width: 230px; height: 230px" alt="...">
-        </div> 
-        <div style="display: flex;justify-content: center;align-items: center; margin-top: 5px;">
-          <div class="rounded-pill edit-profile" style="margin: auto;">
-            <span><strong class="edit-profile-text">edit photo</strong></span>
-          </div>
         </div>
-        
+        <div class="title-photo"><%= photo.title %></div>
+        <% if @profile_user == current_user %>
+          <%=  link_to edit_photo_path(photo.id), :class=>"link-btn-edit-photo" do %>
+            <div class="cover-btn-edit-photo">
+              <div class="rounded-pill edit-profile btn-edit-photo">
+                <span><strong class="edit-profile-text">edit photo</strong></span>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     <% end %>
   </div>

@@ -1,0 +1,18 @@
+<% if @profile_user.id != current_user.id %>
+  <% if @cmp == 0 %>
+    <%= link_to follows_create_path(@profile_user.id), :style=>"text-decoration:none;", :method=>"POST" do %>
+      <div class="rounded-pill follow">
+        <span><strong class="follow-text">follow</strong></span>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="rounded-pill following">
+      <span><strong class="following-text">following</strong></span>
+    </div>
+  <% end %>
+<% elsif @profile_user.id == current_user.id %>
+
+  <div class="rounded-pill edit-profile">
+    <span><strong class="edit-profile-text">edit profile</strong></span>
+  </div>
+<% end %>

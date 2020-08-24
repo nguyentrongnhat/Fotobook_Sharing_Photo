@@ -45,8 +45,8 @@ nav.navbar{
 }
 
 .card-avatar{
-	height: 100px;
-	width: 100px;
+	height: 170px;
+	width: 170px;
 }
 
 .name-account{
@@ -178,4 +178,108 @@ nav.navbar{
 	.text-profile{
 		text-align: center;
   }
+}
+
+.link-btn-edit-photo{
+	text-decoration: none;
+}
+
+.cover-btn-edit-photo{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 0px;
+	height: 10px;
+}
+
+.one-photos{
+	margin: auto;
+}
+
+.cover-photo-profile{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.title-photo{
+	padding-top: 2px;
+	height: 15px;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 17px;
+	line-height: 14px;
+	text-align: center;
+
+	color: #4F4F4F;
+}
+
+.card-followings{
+	background-color: #F8F8F8;
+	border: 0.5px solid #E0E0E0;
+	box-sizing: border-box;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14);
+	border-radius: 6px;
+}
+
+.cover-name-followings{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.name-followings{
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 21px;
+
+	color: #4F4F4F;
+}
+
+.follow-down{
+	margin-top: 15px;
+	display: inline;
+	background: linear-gradient(#EB5B56, #F2974B);
+	border-radius: 8px;
+	display: inline-block;
+	/*padding: 5px;*/
+	padding: 3px;
+}
+
+.follow-down span {
+	background:white;
+	display: block;
+	padding: 0.3em 0.7em;
+	border-radius: 100px;
+}
+
+.follow-down-text{
+	font-size: 15px;
+	background: -webkit-linear-gradient(#EB5B56, #F2974B);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+
+.following-down{
+	margin-top: 15px;
+	display: inline;
+	background: linear-gradient(#EB5B56, #F2974B);
+	border-radius: 8px;
+	display: inline-block;
+	padding: 2px;
+}
+
+.following-down span {
+	color: black;
+	display: block;
+	padding: 0.3em 0.7em;
+	border-radius: 100px;
+}
+
+.following-down-text{
+	font-size: 15px;
+	background: -webkit-linear-gradient(#FFFFFF, #FFFFFF);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
 }

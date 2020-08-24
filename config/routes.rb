@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   post "react/album/:id_album/:id_user", to: "reacts#react_album", as: :react_albums
   put "react/album/:id_album/:id_user", to: "reacts#unreact_album", as: :unreact_albums
 
+  post "follows/:id_following/create", to: "follows#create", as: :follows_create
+  post "follows/:id_following/destroy", to: "follows#destroy", as: :follows_destroy
+  
   root to: "photos#index"
   namespace :admin do
     resources :photos, :albums, :users

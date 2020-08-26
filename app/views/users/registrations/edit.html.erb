@@ -10,7 +10,13 @@
   <div class="row" style="margin-bottom: 20px;">
     <div class="col">
       <h3>Avatar</h3>
-      <img src=<%= current_user.avatar %> class="rounded float-left" style="height: 200px; width: 200px;">
+
+      <% if current_user.avatar_identifier == "none" %>
+        <img src="/images/avatar_temp/avatar.png" class="rounded float-left" style="height: 200px; width: 200px;">
+      <% else %>
+        <img src=<%= current_user.avatar %> class="rounded float-left" style="height: 200px; width: 200px;">
+      <% end %>
+
     </div>
   </div>
 

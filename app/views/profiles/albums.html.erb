@@ -1,7 +1,13 @@
 <div class="container pt-5" style="background-color: white">
   <div class="row cover-avatar">
     <div class="col-12 col-md-12 col-lg-4" style="text-align: center;">
-      <img src=<%= @profile_user.avatar %> class="rounded-circle avatar" style="display: inline-block;">
+
+      <% if @profile_user.avatar_identifier == "none" %>
+        <img src="/images/avatar_temp/avatar.png" class="rounded-circle avatar" style="display: inline-block;">
+      <% else %>
+        <img src=<%= @profile_user.avatar %> class="rounded-circle avatar" style="display: inline-block;">
+      <% end %>
+      
     </div>
     <div class="col-12 col-md-12 col-lg-8 text-profile">
       <div class="text-profile-sub">

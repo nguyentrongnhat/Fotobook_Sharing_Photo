@@ -23,7 +23,6 @@ class AlbumsController < ApplicationController
 	  	@album = @user.albums.create param_permit_create
 	  	if @album
 	  		@photo = @user.photos.create param_permit_create
-	  		byebug
 	  		@aps = @album.aps.create(album_id: @album.id, photo_id: @photo.id)
 	  		puts "FUCKKKKKK"
 	  		flash[:create_photo_sucess] = "create sucess fullly"

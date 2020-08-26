@@ -16,7 +16,11 @@
 					<div class="card-body">
 						<div>
 							<%= link_to profiles_path(photo.user.id), :style=> "text-decoration: none;" do %>
-								<img src=<%=photo.user.avatar%> alt="..." class="rounded-circle" style="width: 40px; height: 40px">
+								<% if photo.user.avatar_identifier == "none" %>
+									<img src="/images/avatar_temp/avatar.png" alt="..." class="rounded-circle" style="width: 40px; height: 40px">
+								<% else %>
+									<img src=<%=photo.user.avatar%> alt="..." class="rounded-circle" style="width: 40px; height: 40px">
+								<% end %>
 								<span class="user-name-photo"><%=photo.user.firstname + " " + photo.user.lastname %></span>
 							<% end %>
 						</div>

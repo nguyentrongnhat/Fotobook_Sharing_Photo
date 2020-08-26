@@ -36,7 +36,7 @@
 
 <body style="background-color:#F8F8F8;" class="body">
   <nav class="navbar navbar-expand-lg navbar-light bg-dark nav-top">
-    <a class="navbar-brand" href=<%= photos_feed_path %> style="color: white;">Fotobook</a>
+    <a class="navbar-brand" href=<%= photos_path %> style="color: white;">Fotobook</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -50,7 +50,11 @@
           
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
-              <img src=<%= current_user.avatar %> class="rounded-circle avatar-nav">
+              <% if current_user.avatar_identifier == "none" %>
+                <img src="/images/avatar_temp/avatar.png" class="rounded-circle avatar-nav">
+              <% else %>
+                <img src=<%= current_user.avatar %> class="rounded-circle avatar-nav">
+              <% end %>
               <%= current_user.firstname + " " + current_user.lastname %>
             </a>
             

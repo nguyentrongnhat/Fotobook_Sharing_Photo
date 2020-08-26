@@ -34,7 +34,7 @@
 en:
   time:
     formats:
-      own: "%H:%M pm, %d/%m/%y"
+      own: "%-I:%M %p, %d/%m/%y"
       default: "%d-%m-%Y"
       long: "%d %B, %Y"
       short: "%d %b"

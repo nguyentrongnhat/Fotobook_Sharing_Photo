@@ -1,5 +1,12 @@
-<% @photos.each do |photo| %>	
-	<div class="col-12 col-sm-12 col-md-6 model cover-card-photo">
+<% @photos.each do |photo| %>
+	
+	<% if photo.user.id != current_user.id and photo.status == false %>
+        
+        <%next%>
+
+    <% end %>
+	
+	<div class="col-12 col-sm-12 col-md-6 model cover-card-photo" style="padding-bottom: 5px;">
 		<div class="card">
 			<div class="row no-gutters">
 				<div class="col-md-7" data-toggle="modal" data-target="#exampleModal">
@@ -15,7 +22,7 @@
 						</div>
 						<h5 class="card-title"><%= photo.title %></h5>
 						<p class="card-text-decription"><%= photo.decription %></p>
-						<p class="card-text-created_at"><i><small class="text-muted"><%= photo.created_at %></small></i></p>
+						<p class="card-text-created_at"><i><small class="text-muted"><%= l(photo.created_at, format: :own) %></small></i></p>
 
 						<p class="react" style="padding-right: 2px">
 							<% if photo.reacts.where(user_react: current_user.id).size == 0 %>

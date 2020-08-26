@@ -1,11 +1,16 @@
 class PhotosController < ApplicationController
+  
   def index
   	check_login
     @user = current_user
-  	@photos = Photo.all.page params[:page]
-
+  	@photos = Photo.where.not(status: false and user_id: current_user.id).order(created_at: :desc).page params[:page]
   end
 
+  def index_feed
+    check_login
+    @user = current_user
+    @photos = Photo.where(user_id: current_user.follows.select("id_following")).where.not(status: false and user_id: current_user.id).order(created_at: :desc).page params[:page]
+  end
 
   def new
     check_login
@@ -38,6 +43,12 @@ class PhotosController < ApplicationController
     else
       render "edit"
     end
+  end
+
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    redirect_to profiles_path(current_user.id)
   end
 
   def check_login

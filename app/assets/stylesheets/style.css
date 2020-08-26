@@ -103,8 +103,9 @@
 .card-text-created_at{
 	position: absolute;
 	overflow: hidden;
-	font-size: 15px;
-	bottom: 25px;
+	font-size: 20px;
+	bottom: 0px;
+	right: 20px;
 }
 
 .card-body{
@@ -134,7 +135,8 @@ body.modal-open .ab {
 	filter: blur(5px);
 }
 .modal-footer{
-	height: 60px
+	height: 60px;
+	position: relative;
 }
 
 .decription_photo_show{

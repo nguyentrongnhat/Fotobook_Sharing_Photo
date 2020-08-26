@@ -335,8 +335,21 @@ nav.navbar{
 .background-icon-lock{
 	display: inline;
 	position: absolute;
+	left: 40px;
+	top: 12px;
+	background-color:white;
+	height: 25px;
+	width: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.background-icon-delete{
+	display: inline;
+	position: absolute;
 	right: 40px;
-	top: 15px;
+	top: 12px;
 	background-color:white;
 	height: 25px;
 	width: 25px;

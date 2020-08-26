@@ -1,0 +1,55 @@
+<div class="container-fluid pt-3" style="background-color: #F8F8F8;">
+	<div class="row photos_to_albums">
+		<div class="btn-group" role="group" aria-label="Basic example">
+			<%= link_to "Photos", photos_feed_path, :class => "btn btn-secondary mode_photo_button" %>
+
+			<%= link_to "Albums", albums_feed_path, :class => "btn btn-secondary mode_album_button", :style => "color:#4e69a2;"%>
+		</div>
+	</div>
+	<div class="row">
+	<!-- Modal -->
+		<div class="myModal modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="text-modal-title" style="font-weight: bold; font-size: 15px;">sdfasdfasd</div>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<img src="source" alt="..." class="card-img image-modal">
+					</div>
+					<div class="modal-footer" style="position: relative;">
+						<div class="modal-footer-text" style="position: absolute; left: 10px;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row ab photo-lists">
+		<div class="col-0 col-md-0 col-lg-2" >
+			<ul>
+				<%= link_to photos_feed_path do %>
+					<li style="color: #3C5999; font-weight: bold;" class="avtive">Feed</li>
+				<% end %>
+
+				<%= link_to photos_path do %>
+					<li style="color: #3C5999;">Discover</li>
+				<% end %>
+			</ul>
+		</div>
+		<div class="col-12 col-md-12 col-lg-8 container-fluid">
+			<div class="row" style="background-color: #FFFFFF;">
+				<%= render 'photos_container', photos: @photos%>
+			</div>
+		</div>
+		<div class="col-0 col-md-0 col-lg-2"></div>
+	</div>
+
+	
+	<div class="row pt-5 photos_to_albums">
+		<%= paginate @photos, theme: 'twitter-bootstrap-4' %>
+	</div>
+</div>

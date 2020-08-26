@@ -10,7 +10,7 @@ $(document).ready(function(){
 		var decription = parent.find(".card-text-decription").text();
 		$(".text-modal-title").text(title); 
 		$(".image-modal").attr("src", source);
-  		$(".modal-footer").text(decription);
+  		$(".modal-footer-text").text(decription);
   		console.log(source);
   		console.log(parent.attr("class"));
   		console.log(decription);

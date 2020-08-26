@@ -12,7 +12,7 @@
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<div class="text-modal-title">sdfasdfasd</div>
+						<div class="text-modal-title" style="font-weight: bold; font-size: 15px;">sdfasdfasd</div>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -20,14 +20,26 @@
 					<div class="modal-body">
 						<img src="source" alt="..." class="card-img image-modal">
 					</div>
-					<div class="modal-footer overide-footer"></div>
+					<div class="modal-footer" style="position: relative;">
+						<div class="modal-footer-text" style="position: absolute; left: 10px;"></div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<div class="row ab photo-lists">
-		<div class="col-0 col-md-0 col-lg-2" ></div>
+		<div class="col-0 col-md-0 col-lg-2" >
+			<ul>
+				<%= link_to photos_feed_path do %>
+					<li style="color: #3C5999;">Feed</li>
+				<% end %>
+
+				<%= link_to photos_path do %>
+					<li style="color: #3C5999; font-weight: bold;"  class="avtive">Discover</li>
+				<% end %>
+			</ul>
+		</div>
 		<div class="col-12 col-md-12 col-lg-8 container-fluid">
 			<div class="row" style="background-color: #FFFFFF;">
 				<%= render 'photos_container', photos: @photos%>

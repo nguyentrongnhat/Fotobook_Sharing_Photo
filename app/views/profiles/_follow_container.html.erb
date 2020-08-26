@@ -11,8 +11,9 @@
     </div>
   <% end %>
 <% elsif @profile_user.id == current_user.id %>
-
-  <div class="rounded-pill edit-profile">
-    <span><strong class="edit-profile-text">edit profile</strong></span>
-  </div>
+  <%= link_to edit_user_registration_path do %>
+    <div class="rounded-pill edit-profile">
+      <span><strong class="edit-profile-text">edit profile</strong></span>
+    </div>
+  <% end %>
 <% end %>

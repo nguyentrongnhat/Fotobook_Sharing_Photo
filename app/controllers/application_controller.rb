@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
 	  def configure_permitted_parameters
 	    devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname, :lastname, :avatar])
 	  end
+
+	before_action :set_locale
+		def set_locale
+			I18n.locale = params[:locale] || I18n.default_locale
+		end
 end

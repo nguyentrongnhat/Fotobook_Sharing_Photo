@@ -1,7 +1,13 @@
 class AlbumsController < ApplicationController
   	def index
   		check_login
-	 	@albums = Album.where(:status => true).order(created_at: :desc).limit(6)
+	 	@albums = Album.order(created_at: :desc).where(status: true).page params[:page]
+	end
+
+	def index_feed
+		check_login
+		@user = current_user
+		@albums = Album.where(user_id: current_user.follows.select("id_following")).order(created_at: :desc).where(status: true).page params[:page]
 	end
 
 	def new
@@ -17,6 +23,7 @@ class AlbumsController < ApplicationController
 	  	@album = @user.albums.create param_permit_create
 	  	if @album
 	  		@photo = @user.photos.create param_permit_create
+	  		byebug
 	  		@aps = @album.aps.create(album_id: @album.id, photo_id: @photo.id)
 	  		puts "FUCKKKKKK"
 	  		flash[:create_photo_sucess] = "create sucess fullly"

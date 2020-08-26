@@ -1,5 +1,5 @@
 class Photo < ApplicationRecord
-	validates :title, length: { maximum: 20 }, allow_blank: true
+	validates :title, length: { maximum: 50 }, allow_blank: true
 	validates :decription, length: { maximum: 100 }, allow_blank: true
 	validates :source, presence: true
 	belongs_to :user, counter_cache: :count_of_photos

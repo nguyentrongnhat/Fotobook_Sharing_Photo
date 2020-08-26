@@ -3,13 +3,13 @@ class PhotosController < ApplicationController
   def index
   	check_login
     @user = current_user
-  	@photos = Photo.where.not(status: false and user_id: current_user.id).order(created_at: :desc).page params[:page]
+  	@photos = Photo.where(status: true).order(created_at: :desc).page params[:page]
   end
 
   def index_feed
     check_login
     @user = current_user
-    @photos = Photo.where(user_id: current_user.follows.select("id_following")).where.not(status: false and user_id: current_user.id).order(created_at: :desc).page params[:page]
+    @photos = Photo.where(user_id: current_user.follows.select("id_following")).where(status: true).order(created_at: :desc).page params[:page]
   end
 
   def new

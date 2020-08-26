@@ -283,3 +283,190 @@ nav.navbar{
   	-webkit-background-clip: text;
   	-webkit-text-fill-color: transparent;
 }
+
+.follow-down-text{
+	font-size: 15px;
+	background: -webkit-linear-gradient(#EB5B56, #F2974B);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+
+.btn-add-photo{
+	display: inline;
+	background: linear-gradient(#00A557, #00A557);
+	border-radius: 8px;
+	display: inline-block;
+	padding: 2px;
+}
+
+.btn-add-photo span {
+	color: black;
+	display: block;
+	padding: 0.3em 0.7em;
+	border-radius: 100px;
+}
+
+.btn-add-photo-text{
+	font-size: 15px;
+	background: -webkit-linear-gradient(#FFFFFF, #FFFFFF);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+
+@media only screen and (max-width: 991px) {
+	.btn-add-photo{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+  }
+  	.btn-add-photo.text{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+  }
+}
+
+@media only screen and (min-width: 991px) {
+	.btn-add-photo{
+		float: right;
+  }
+}
+
+.background-icon-lock{
+	display: inline;
+	position: absolute;
+	right: 40px;
+	top: 15px;
+	background-color:white;
+	height: 25px;
+	width: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.text-btn-edit{
+	display: inline;
+	position: absolute;
+	right: 40px;
+	top: 200px;
+	border-radius: 14px;
+	height: 22px;
+	width: 50px;
+	color: white;
+	text-align: center;
+	font-size: 12px;
+	line-height: 13px;
+	padding-top: 5px;
+}
+
+.background-btn-edit{
+	display: inline;
+	position: absolute;
+	right: 40px;
+	top: 200px;
+	background-color:rgba(0, 0, 0, 0.4);
+	border-radius: 14px;
+	height: 22px;
+	width: 50px;
+}
+
+
+.background-icon-lock-album{
+	display: inline;
+	position: absolute;
+	right: 60px;
+	top: 45px;
+	background-color:white;
+	height: 25px;
+	width: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.text-btn-edit-album{
+	display: inline;
+	position: absolute;
+	right: 60px;
+	top: 190px;
+	border-radius: 14px;
+	height: 22px;
+	width: 50px;
+	color: white;
+	text-align: center;
+	font-size: 12px;
+	line-height: 13px;
+	padding-top: 5px;
+}
+
+.background-btn-edit-album{
+	display: inline;
+	position: absolute;
+	right: 60px;
+	top: 190px;
+	background-color:rgba(0, 0, 0, 0.4);
+	border-radius: 14px;
+	height: 22px;
+	width: 50px;
+}
+
+.title-album{
+	margin-top: 0px;
+	padding-top: 2px;
+	height: 15px;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 17px;
+	line-height: 14px;
+	text-align: center;
+	color: #4F4F4F;
+}
+
+.text-num-of-album{
+	display: inline;
+	position: absolute;
+	height: 120px;
+	width: 120px;
+	right: 80px;
+	top: 65px;
+	border-radius: 14px;
+	color: white;
+	padding-top: 30px;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 35px;
+	line-height: 40px;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.text-num-of-album-small{
+	display: inline;
+	position: absolute;
+	height: 120px;
+	width: 120px;
+	right: 80px;
+	top: 65px;
+	border-radius: 14px;
+	color: white;
+	padding-top: 65px;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 13px;
+	line-height: 16px;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.background-num-of-album{
+	display: inline;
+	position: absolute;
+	right: 80px;
+	top: 65px;
+	background-color:rgba(0, 0, 0, 0.4);
+	/*border-radius: 100px;*/
+	height: 120px;
+	width: 120px;
+}

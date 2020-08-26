@@ -4,16 +4,16 @@ require("jquery-validation")
 $(document).ready(function(){
 
 	$(".shadow").click(function(){
-		var parent = $(this).closest( "div" ).closest( "div" );
+		var parent = $(this).closest(".cover-card-photo");
 		var source = parent.find(".shadow").attr("src");
 		var title = parent.find(".card-title").text();
 		var decription = parent.find(".card-text-decription").text();
-		$(".modal-title").text(title); 
+		$(".text-modal-title").text(title); 
 		$(".image-modal").attr("src", source);
-  		$(".modal-footer").text(decription)
-  		console.log(source)
-  		console.log(title)
-  		console.log(decription)
+  		$(".modal-footer").text(decription);
+  		console.log(source);
+  		console.log(parent.attr("class"));
+  		console.log(decription);
   	});
 
   	$(".close").click(function(){

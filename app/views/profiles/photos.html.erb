@@ -20,13 +20,13 @@
           
           <li class="list-inline-item">
             <%= link_to profiles_albums_path(@profile_user.id), :class=>"link-in-profiles", :style=>"text-decoration: none;" do %>
-              <h3 class="inline-item"><%= @profile_user.albums.size %></h3> ALBUMS  &verbar;
+              <h3 class="inline-item"><%= @profile_user.count_of_albums %></h3> ALBUMS  &verbar;
             <% end %>
           </li>
           
           <li class="list-inline-item">
             <%= link_to profiles_followings_path(@profile_user.id), :class=>"link-in-profiles", :style=>"text-decoration: none;" do %>
-              <h3 class="inline-item"><%= @profile_user.follows.size %></h3> FOLLOWINGS  &verbar;
+              <h3 class="inline-item"><%= @profile_user.count_of_followings %></h3> FOLLOWINGS  &verbar;
             <% end %>
           </li>
           
@@ -41,21 +41,41 @@
       
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-12">
+      <%= link_to new_photo_path, :method => "GET" do %>
+      <div class="rounded-pill btn-add-photo">
+        <span><strong class="btn-add-photo-text">Add Photo</strong></span>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
   <div class="row pt-5 pb-5">
     <% @photos.each do |photo| %>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="">
-        <div class="cover-photo-profile">
-          <img src=<%= photo.source %> class="one-photos rounded" style="width: 230px; height: 230px" alt="...">
+      <% if @profile_user.id != current_user.id and photo.status == false %>
+        
+        <%next%>
+
+      <% end %>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="margin-bottom: 50px;">
+        <div class="cover-photo-profile" >
+          <img src=<%= photo.source %> class="one-photos rounded" style="width: 230px; height: 230px; position: relative;" alt="...">  
         </div>
         <div class="title-photo"><%= photo.title %></div>
         <% if @profile_user == current_user %>
-          <%=  link_to edit_photo_path(photo.id), :class=>"link-btn-edit-photo" do %>
-            <div class="cover-btn-edit-photo">
-              <div class="rounded-pill edit-profile btn-edit-photo">
-                <span><strong class="edit-profile-text">edit photo</strong></span>
-              </div>
-            </div>
+          <%= link_to edit_photo_path(photo.id) do %>
+            <div class="background-btn-edit"></div>
+
+            <div class="text-btn-edit">EDIT</div>
           <% end %>
+        <% end %>
+    
+        <% if photo.status == false %>
+          <div class="background-icon-lock rounded-circle">
+            <i class="fas fa-lock"></i>
+          </div>
         <% end %>
       </div>
     <% end %>

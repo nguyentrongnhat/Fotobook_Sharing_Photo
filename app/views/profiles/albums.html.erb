@@ -41,14 +41,56 @@
       </div>   
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-12">
+      <%= link_to new_album_path, :method => "GET" do %>
+      <div class="rounded-pill btn-add-photo">
+        <span><strong class="btn-add-photo-text">Add Album</strong></span>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
   <div class="row pt-5">
     <% @albums.each do |album| %>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="cover-thumnail">
+
+      <% if @profile_user.id != current_user.id and album.status == false %>
+        
+        <%next%>
+
+      <% end %>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="height: 280px; margin-bottom: 30px; display: flex; justify-content: center; align-items: center; position: relative;">
+        <div class="cover-thumnail" style="position: absolute; top: 30px;">
           <img src=<%= album.source %> class="one" alt="...">
           <img src=<%= album.source %> class="two" alt="...">
           <img src=<%= album.source %> class="three" alt="...">
-        </div> 
+        </div>
+
+        <div class="title-album" style="position: absolute; bottom: 5px;"><%= album.title %></div>
+
+        <% if @profile_user == current_user %>
+          <%= link_to edit_album_path(album.id) do %>
+            <div class="background-btn-edit-album"></div>
+
+            <div class="text-btn-edit-album">EDIT</div>
+          <% end %>
+        <% end %>
+
+        
+        <div class="background-num-of-album rounded-circle"></div>
+
+        <div class="text-num-of-album rounded-circle"><%= album.count_of_photos %></div>
+        <div class="text-num-of-album-small rounded-circle">PHOTOS</div>
+
+    
+        <% if album.status == false %>
+          <div class="background-icon-lock-album rounded-circle">
+            <i class="fas fa-lock"></i>
+          </div>
+        <% end %>
+
       </div>
     <% end %>
   </div>

@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   post "follows/:id_following/create", to: "follows#create", as: :follows_create
   post "follows/:id_following/destroy", to: "follows#destroy", as: :follows_destroy
+
+  delete "albums/edit/destroy/:id_album/:id_photo", to: "albums#destroy_photo_from_album", as: :destroy_photo_from_album
   
   root to: "photos#index"
   namespace :admin do

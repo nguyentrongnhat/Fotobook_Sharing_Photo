@@ -59,6 +59,9 @@
             </a>
             
             <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-right: 50px;">
+              <% if current_user.isAdmin == true %>
+                <%= link_to "Go Admin", rails_admin_path, :class => "dropdown-item", :method => "GET" %>
+              <% end %>
               <%= link_to "Your Profile", profiles_path(current_user.id), :class => "dropdown-item", :method => "GET" %>
               <%= link_to "Create Photo", new_photo_path, :class => "dropdown-item", :method => "GET" %>
               <%= link_to "Create Album", new_album_path, :class => "dropdown-item", :method => "GET" %>
@@ -69,6 +72,20 @@
         
         </ul>
       </div>
+    <% else %>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="mr-auto"></div>
+        
+        <ul class="navbar-nav pt-0 pb-0">
+          
+          <li class="nav-item dropdown">
+            <%= link_to "Login", new_user_session_path, :class=>"nav-link", :id=>"navbarDropdown", :role=>"button", :style=>"color: white;" %>
+          </li>
+        
+        </ul>
+      </div>
+
     <% end %>
   </nav>
 

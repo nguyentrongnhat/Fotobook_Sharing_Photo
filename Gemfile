@@ -42,6 +42,8 @@ gem 'carrierwave', '~> 2.1', github: 'carrierwaveuploader/carrierwave'
 
 gem 'i18n', '~> 1.8', '>= 1.8.5'
 
+gem 'rails_admin', '~> 2.0', '>= 2.0.2'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

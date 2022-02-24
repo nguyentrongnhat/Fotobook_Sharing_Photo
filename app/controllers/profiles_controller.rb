@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
 	def albums
+		check_login_to_redirect_login
 		@profile_user = User.find(params[:id_user])
 		@albums = @profile_user.albums.all
 		@cmp = current_user.follows.where(id_following: params[:id_user]).size
@@ -7,6 +8,8 @@ class ProfilesController < ApplicationController
 	end
 
 	def photos
+
+		check_login_to_redirect_login
 		@profile_user = User.find(params[:id_user])
 		@photos = @profile_user.photos.all
 		@cmp = current_user.follows.where(id_following: params[:id_user]).size
@@ -14,6 +17,7 @@ class ProfilesController < ApplicationController
 	end
 
 	def followings
+		check_login_to_redirect_login
 		@profile_user = User.find(params[:id_user])
 		@follows_record = @profile_user.follows.all
 
@@ -27,6 +31,7 @@ class ProfilesController < ApplicationController
 	end
 
 	def followers
+		check_login_to_redirect_login
 		@profile_user = User.find(params[:id_user])
 		@followers = Follow.where(id_following: params[:id_user])
 		@cmp = current_user.follows.where(id_following: params[:id_user]).size

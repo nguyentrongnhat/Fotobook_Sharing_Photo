@@ -1,0 +1,42 @@
+<% @photos.each do |photo| %>
+	
+	<% if photo.status == false %>
+        
+        <%next%>
+
+    <% end %>
+	
+	<div class="col-12 col-sm-12 col-md-6 model cover-card-photo" style="padding-bottom: 5px;">
+		<div class="card">
+			<div class="row no-gutters">
+				<div class="col-md-7" data-toggle="modal" data-target="#exampleModal">
+					<img src=<%= photo.source %> alt="..." class="card-img image shadow">
+				</div>
+				<div class="col-md-5 decrible">
+					<div class="card-body">
+						<div>
+							
+							<% if photo.user.avatar_identifier == "none" %>
+								<img src="/images/avatar_temp/avatar.png" alt="..." class="rounded-circle" style="width: 40px; height: 40px">
+							<% else %>
+								<img src=<%=photo.user.avatar%> alt="..." class="rounded-circle" style="width: 40px; height: 40px">
+							<% end %>
+							<span class="user-name-photo"><%=photo.user.firstname + " " + photo.user.lastname %></span>
+				
+						</div>
+						<h5 class="card-title"><%= photo.title %></h5>
+						<p class="card-text-decription"><%= photo.decription %></p>
+						<p class="card-text-created_at"><i><small class="text-muted"><%= l(photo.created_at, format: :own) %></small></i></p>
+
+						<p class="react" style="padding-right: 2px">									
+							<span id="react" class="fas fa-heart" style="color: #3b5998;"></span>
+							
+							<span style="padding-bottom: 3px; color: #4e69a2;"><%= photo.count_of_reacts %></span>
+						</p>
+					</div>
+					
+				</div>
+			</div>
+		</div>	
+	</div>
+<% end %>

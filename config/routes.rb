@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "photos/feed", to: "photos#index_feed", as: :photos_feed
@@ -30,7 +31,11 @@ Rails.application.routes.draw do
   delete "albums/edit/destroy/:id_album/:id_photo", to: "albums#destroy_photo_from_album", as: :destroy_photo_from_album
   
   root to: "photos#index"
-  namespace :admin do
-    resources :photos, :albums, :users
-  end
+  
+  #namespace :admin do
+  #  resources :photos, :albums, :users
+  #end
+
+  #mount RailsAdmin::Engine => "/admin", as: :rails_admin
+
 end

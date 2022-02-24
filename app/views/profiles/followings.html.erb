@@ -51,7 +51,13 @@
         <div class="card rounded card-followings" style="background-color: #F8F8F8;">
           <%= link_to profiles_path(following.id), :style=> "text-decoration: none;" do %>
             <div class="cover-avatar-card">
-              <img src=<%= following.avatar %> class="rounded-circle card-avatar" style="display: inline-block;">
+
+              <% if following.avatar_identifier == "none" %>
+                <img src="/images/avatar_temp/avatar.png" class="rounded-circle card-avatar" style="display: inline-block;">
+              <% else %>
+                <img src=<%= following.avatar %> class="rounded-circle card-avatar" style="display: inline-block;">
+              <% end %>
+              
             </div>
           <% end %>
           <div class="card-body" style="max-height: 180px; width: 100%">

@@ -1,0 +1,53 @@
+<% @albums.each do |album| %>
+	
+	<% if album.status == false %>
+        
+        <%next%>
+
+    <% end %>
+
+	<div class="col-12 col-sm-12 col-md-6 model">
+		<div class="card">
+			<div class="row no-gutters">
+				
+				<div class="col-lg-6" style="background-color: #F8F8F8;">
+					<%= link_to album_path(album.id) do %>
+						<div class="cover-thumnail-album thumbnail-album-in-list">
+							<img src=<%= album.source %> class="one-album" alt="...">
+							<img src=<%= album.source %> class="two-album" alt="...">
+							<img src=<%= album.source %> class="three-album" alt="...">
+						</div>
+					<% end %>
+				</div>
+				
+				<div class="col-lg-6 decrible">
+					<div class="card-body">
+						<div>
+							
+								<% if album.user.avatar_identifier == "none" %>
+									<img src="/images/avatar_temp/avatar.png" alt="..." class="rounded-circle" style="width: 40px; height: 40px">
+								<% else %>
+									<img src=<%=album.user.avatar%> alt="..." class="rounded-circle" style="width: 40px; height: 40px">
+								<% end %>
+								
+								<span class="user-name-photo"><%=album.user.firstname + " " + album.user.lastname %></span>
+
+						</div>
+						<h5 class="card-title"><%= album.title %></h5>
+						<p class="card-text-decription"><%= album.decription %></p>
+						
+
+						<p class="react" style="padding-right: 2px; display: inline;">
+
+							<span id="react" class="fas fa-heart" style="color: #3b5998;"></span>
+
+							<span style="padding-bottom: 3px; color: #4e69a2;"><%= album.count_of_reacts %></span>
+						</p>
+						<p class="card-text-created_at" style="display: inline;"><i><small class="text-muted"><%= l(album.created_at, format: :own) %></small></i></p>
+					</div>
+					
+				</div>
+			</div>
+		</div>	
+	</div>
+<% end %>

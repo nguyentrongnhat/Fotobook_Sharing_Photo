@@ -38,25 +38,6 @@ $(document).ready(function(){
       $("#myModal").hide()
   })
 
-	$(".fa-heart").click(function(){
-		if($(this).attr("class") == "fas fa-heart"){
-			$(this).attr("class", "far fa-heart");
-			console.log($(this).attr("class"));
-			var num = parseInt($(this).parent().next().text());
-			num = num - 1;
-			console.log(num)
-			$(this).parent().next().text(num)
-		}
-		else if($(this).attr("class") == "far fa-heart"){
-			$(this).attr("class", "fas fa-heart");
-			console.log($(this).attr("class"));
-			var num = parseInt($(this).parent().next().text());
-			num = num + 1;
-			console.log(num)
-			$(this).parent().next().text(num)
-		}
-	});
-
 	$(".edit_album").validate({
 		rules: {
 			"album[title]": "required"

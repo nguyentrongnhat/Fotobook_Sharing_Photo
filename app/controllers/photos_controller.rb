@@ -7,20 +7,23 @@ class PhotosController < ApplicationController
   end
 
   def index_feed
-    check_login
-    @user = current_user
-    @photos = Photo.where(user_id: current_user.follows.select("id_following")).where(status: true).order(created_at: :desc).page params[:page]
+    if !user_signed_in?
+      @photos = Photo.where(status: true).order(created_at: :desc).page params[:page]
+    else
+      @user = current_user
+      @photos = Photo.where(user_id: current_user.follows.select("id_following")).where(status: true).order(created_at: :desc).page params[:page]
+    end
   end
 
   def new
-    check_login
+    check_login_to_redirect_login
     @user = current_user
   	@photo = @user.photos.new
   end
 
   def create
     require 'carrierwave/orm/activerecord'
-    check_login
+    check_login_to_redirect_login
     @user = current_user
   	@photo = @user.photos.new param_permit
   	if @photo.save
@@ -32,10 +35,12 @@ class PhotosController < ApplicationController
   end
 
   def edit
+    check_login_to_redirect_login
     @photo = Photo.find(params[:id])
   end
 
   def update
+    check_login_to_redirect_login
     @photo = Photo.find(params[:id])
     if @photo.update(param_permit)
       flash[:notice] = "Photo have successfully edit."
@@ -46,15 +51,10 @@ class PhotosController < ApplicationController
   end
 
   def destroy
+    check_login_to_redirect_login
     @photo = Photo.find(params[:id])
     @photo.destroy
     redirect_to profiles_path(current_user.id)
-  end
-
-  def check_login
-    if user_signed_in? == false
-      redirect_to new_user_session_path
-    end
   end
 
   private

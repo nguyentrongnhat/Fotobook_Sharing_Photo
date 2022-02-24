@@ -31,19 +31,27 @@
 	<div class="row ab photo-lists">
 		<div class="col-0 col-md-0 col-lg-2" >
 			<ul>
-				<%= link_to photos_feed_path do %>
-					<li style="color: #3C5999; font-weight: bold;" class="avtive">Feed</li>
-				<% end %>
+				<% if user_signed_in? %>
+					<%= link_to photos_feed_path do %>
+						<li style="color: #3C5999; font-weight: bold;" class="avtive">Feed</li>
+					<% end %>
 
-				<%= link_to photos_path do %>
-					<li style="color: #3C5999;">Discover</li>
+					<%= link_to photos_path do %>
+						<li style="color: #3C5999;">Discover</li>
+					<% end %>
 				<% end %>
 			</ul>
 		</div>
 		<div class="col-12 col-md-12 col-lg-8 container-fluid">
-			<div class="row" style="background-color: #FFFFFF;">
-				<%= render 'photos_container', photos: @photos%>
-			</div>
+			<% if !user_signed_in? %>
+				<div class="row" style="background-color: #FFFFFF;">
+					<%= render 'photos_container_none_login', photos: @photos%>
+				</div>
+			<% else %>
+				<div class="row" style="background-color: #FFFFFF;">
+					<%= render 'photos_container', photos: @photos%>
+				</div>
+			<% end %>
 		</div>
 		<div class="col-0 col-md-0 col-lg-2"></div>
 	</div>
